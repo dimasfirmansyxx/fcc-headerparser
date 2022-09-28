@@ -16,7 +16,7 @@ app.get('/api/hello', (req, res) => {
 
 app.get('/api/whoami', (req, res) => {
   res.json({
-    ipaddress: req.ip,
+    ipaddress: req.headers['x-forwaded-for'] || req.socket.remoteAddress,
     language: req.headers['accept-language'],
     software: req.headers['user-agent']
   })
