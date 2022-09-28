@@ -15,6 +15,7 @@ app.get('/api/hello', (req, res) => {
 })
 
 app.get('/api/whoami', (req, res) => {
+  console.log(req.method+' '+req.path+' - '+req.ip)
   res.json({
     ipaddress: req.headers['x-forwaded-for'] || req.socket.remoteAddress,
     language: req.headers['accept-language'],
